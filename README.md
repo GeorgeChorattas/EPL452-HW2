@@ -70,4 +70,3 @@ $ git push -u origin main
 ```
 
 You may push you code as many times you like, grading and submission time will be based on your last push.
-# hw2
