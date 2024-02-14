@@ -11,7 +11,7 @@ It can accept a live video feed via RTMP, and publish it to subscribers using bo
 This part aims to familiarize you with the process of containerizing applications and configuring NGINX with an additional module.
 We expect you to already have a basic familiarity with Docker and NGINX. 
 
-![load balancer](figures/nginx-rtmp.jpg)
+![load balancer](figures/nginx-rtmp.png)
 
 ### Software 
 
