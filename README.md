@@ -1,6 +1,6 @@
 # Homework Assignment 2
 
-Submission Deadline: February 26, 2024
+Submission Deadline: February 28, 2024
 
 This is an individual assignment to be conducted individually by each student.
 
