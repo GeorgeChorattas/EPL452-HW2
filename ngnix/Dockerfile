@@ -12,25 +12,25 @@ RUN apt-get update && \
 
 # Download and decompress Nginx
 # TODO: Execute the following commands in a single line
-mkdir -p /tmp/build/nginx && \
-cd /tmp/build/nginx && \
-wget -O ${NGINX_VERSION}.tar.gz https://nginx.org/download/${NGINX_VERSION}.tar.gz && \
-tar -zxf ${NGINX_VERSION}.tar.gz
+RUN mkdir -p /tmp/build/nginx && \
+ cd /tmp/build/nginx && \
+ wget -O ${NGINX_VERSION}.tar.gz https://nginx.org/download/${NGINX_VERSION}.tar.gz && \
+ tar -zxf ${NGINX_VERSION}.tar.gz
 
 # Download and decompress RTMP module
 # TODO: Execute the following commands in a single line
-mkdir -p /tmp/build/nginx-rtmp-module && \
-cd /tmp/build/nginx-rtmp-module && \
-wget -O nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}.tar.gz https://github.com/arut/nginx-rtmp-module/archive/v${NGINX_RTMP_MODULE_VERSION}.tar.gz && \
-tar -zxf nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}.tar.gz && \
-cd nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}
+RUN mkdir -p /tmp/build/nginx-rtmp-module && \
+ cd /tmp/build/nginx-rtmp-module && \
+ wget -O nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}.tar.gz https://github.com/arut/nginx-rtmp-module/archive/v${NGINX_RTMP_MODULE_VERSION}.tar.gz && \
+ tar -zxf nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}.tar.gz && \
+ cd nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}
 
 # Build and install Nginx
 # The default puts everything under /usr/local/nginx, so it's needed to change
 # it explicitly. Not just for order but to have it in the PATH
 # TODO: Execute the following commands in a single line
- cd /tmp/build/nginx/${NGINX_VERSION} && \
- ./configure \
+RUN  cd /tmp/build/nginx/${NGINX_VERSION} && \
+     ./configure \
      --sbin-path=/usr/local/sbin/nginx \
      --conf-path=/etc/nginx/nginx.conf \
      --error-log-path=/var/log/nginx/error.log \
@@ -49,8 +49,8 @@ cd nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}
 
 # Forward logs to Docker
 # TODO: Execute the following commands in a single line
- ln -sf /dev/stdout /var/log/nginx/access.log && \
- ln -sf /dev/stderr /var/log/nginx/error.log
+RUN  ln -sf /dev/stdout /var/log/nginx/access.log && \
+     ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Set up config file
 # TODO: Copy configuration file nginx.conf to /etc/nginx/nginx.conf
