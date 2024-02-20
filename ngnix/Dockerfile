@@ -54,9 +54,16 @@ RUN  ln -sf /dev/stdout /var/log/nginx/access.log && \
 
 # Set up config file
 # TODO: Copy configuration file nginx.conf to /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose network ports 
 # TODO: Expose network ports 80 and 1935 
+EXPOSE 80 1935
 
 # Execute command
 # TODO: Execute command: nginx -g daemon off;
+CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
